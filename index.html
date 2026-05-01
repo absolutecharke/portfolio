@@ -1,11 +1,382 @@
 <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Charles Pineda | Web Portfolio</title>
-        </head>
-        <body>
-            <h1>Charles Pineda</h1>
-        </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --bg: #f5f2ee;
+      --ink: #1a1a18;
+      --accent: #c8f04a;
+      --accent2: #ff6b35;
+      --card-bg: #ffffff;
+      --border: #1a1a18;
+      --muted: #6b6b68;
+      --shadow: 5px 5px 0px #1a1a18;
+    }
+ 
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+ 
+    /* ── NAV ── */
+    nav {
+      background: var(--ink);
+      border-bottom: 3px solid var(--ink);
+      display: flex;
+      gap: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+ 
+    nav a {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      color: #9a9a95;
+      padding: 18px 32px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      position: relative;
+      text-decoration: none;
+      display: inline-block;
+    }
+ 
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+ 
+    nav a:hover { color: #ffffff; }
+    nav a:hover::after { transform: scaleX(1); }
+ 
+    nav a.active {
+      color: var(--ink);
+      background: var(--accent);
+    }
+    nav a.active::after { display: none; }
+ 
+    /* ── PAGES ── */
+    .page { display: none; padding: 48px 40px; max-width: 960px; margin: 0 auto; }
+    .page.active { display: block; animation: fadeUp 0.35s ease; }
+ 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+ 
+    /* ── PROFILE CARD ── */
+    .profile-header {
+      display: grid;
+      grid-template-columns: 180px 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+ 
+    .photo-box {
+      width: 160px;
+      height: 160px;
+      border: 3px solid var(--border);
+      background: #ddd;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+ 
+    .photo-box img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+ 
+    .photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      background: #e5e2de;
+    }
+ 
+    .photo-placeholder svg { width: 80px; height: 80px; opacity: 0.35; }
+ 
+    .name-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+ 
+    .name-pill {
+      background: var(--accent);
+      border: 3px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 14px 28px;
+      display: inline-block;
+    }
+ 
+    .name-pill h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      letter-spacing: 0.04em;
+    }
+ 
+    .other-pill {
+      border: 3px solid var(--border);
+      background: var(--card-bg);
+      padding: 12px 20px;
+      box-shadow: var(--shadow);
+    }
+ 
+    .other-pill .label {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+ 
+    .other-pill p { font-size: 0.95rem; }
+ 
+    .contact-card {
+      border: 3px solid var(--border);
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+ 
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+ 
+    .contact-row svg { flex-shrink: 0; }
+ 
+    /* ── INTRO BOX ── */
+    .intro-box {
+      border: 3px solid var(--border);
+      background: var(--card-bg);
+      box-shadow: 7px 7px 0px var(--ink);
+      padding: 28px 32px;
+      margin-bottom: 0;
+    }
+ 
+    .intro-box h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+ 
+    .intro-box p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #2a2a26;
+    }
+ 
+    /* ── SECTION TITLES ── */
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 3px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+    }
+ 
+    /* ── TECH STACK ── */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+ 
+    .stack-item {
+      border: 3px solid var(--border);
+      background: var(--card-bg);
+      box-shadow: 4px 4px 0 var(--border);
+      padding: 16px 12px;
+      text-align: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+ 
+    .stack-item:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--border);
+    }
+ 
+    .stack-icon { font-size: 1.6rem; margin-bottom: 6px; }
+ 
+    /* ── CERTS ── */
+    .cert-list { display: flex; flex-direction: column; gap: 16px; }
+ 
+    .cert-card {
+      border: 3px solid var(--border);
+      background: var(--card-bg);
+      box-shadow: 5px 5px 0 var(--border);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      transition: transform 0.15s;
+    }
+ 
+    .cert-card:hover { transform: translate(-2px, -2px); }
+ 
+    .cert-badge {
+      width: 48px; height: 48px;
+      background: var(--accent);
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+ 
+    .cert-info h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 3px;
+    }
+ 
+    .cert-info p { font-size: 0.82rem; color: var(--muted); }
+ 
+    /* ── ABOUT PAGE ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+ 
+    .about-card {
+      border: 3px solid var(--border);
+      background: var(--card-bg);
+      box-shadow: 5px 5px 0 var(--border);
+      padding: 24px;
+    }
+ 
+    .about-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+ 
+    .about-card p { font-size: 0.92rem; line-height: 1.7; }
+ 
+    .highlight-block {
+      border: 3px solid var(--border);
+      background: var(--accent);
+      box-shadow: 5px 5px 0 var(--border);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+ 
+    .highlight-block p {
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+ 
+    /* ── EDITABLE HINT ── */
+    [contenteditable]:focus { outline: 3px dashed var(--accent2); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+ 
+  <nav role="navigation">
+    <a href="#" class="active">Name</a>
+    <a href="about.html" target="_blank">About</a>
+    <a href="techstack.html" target="_blank">Tech Stack</a>
+    <a href="certification.html" target="_blank">Certifications</a>
+  </nav>
+ 
+  <!-- ══ PAGE: NAME / HOME ══ -->
+  <div class="page active">
+    <div class="profile-header">
+ 
+      <!-- Photo -->
+      <div class="photo-box">
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="76" height="76" stroke="#1a1a18" stroke-width="3"/>
+            <line x1="2" y1="2" x2="78" y2="78" stroke="#1a1a18" stroke-width="3"/>
+            <line x1="78" y1="2" x2="2" y2="78" stroke="#1a1a18" stroke-width="3"/>
+          </svg>
+        </div>
+      </div>
+ 
+      <!-- Name + Other Info -->
+      <div class="name-block">
+        <div class="name-pill">
+          <h1>YOUR NAME</h1>
+        </div>
+        <div class="other-pill">
+          <div class="label">Other Info</div>
+          <p>BSIT Undergraduate Based in Bacoor, Cavite, PH</p>
+        </div>
+      </div>
+ 
+      <!-- Contact -->
+      <div class="contact-card">
+        <div class="contact-row">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#1a1a18" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
+          </svg>
+          <span>damejameson329@gmail.com</span>
+        </div>
+        <div class="contact-row">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#1a1a18" stroke-width="2">
+            <path d="M22 16.9a19.2 19.2 0 01-5.7-.9 1 1 0 00-.9.2l-2.4 2.4a15.1 15.1 0 01-6.6-6.6l2.4-2.4a1 1 0 00.2-.9A19.2 19.2 0 018 2a1 1 0 00-1-1H3a1 1 0 00-1 1 20 20 0 0020 20 1 1 0 001-1v-4a1 1 0 00-1-1z"/>
+          </svg>
+          <span>+63 969 140 1257</span>
+        </div>
+      </div>
+ 
+    </div><!-- /profile-header -->
+ 
+    <div class="intro-box">
+      <h2>Short Intro</h2>
+      <p>
+        lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. 
+      </p>
+    </div>
+  </div>
+ 
+</body>
 </html>
