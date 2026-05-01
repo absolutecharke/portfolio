@@ -26,7 +26,7 @@
       min-height: 100vh;
     }
  
-    /* ── NAV ── */
+   
     nav {
       background: var(--ink);
       border-bottom: 3px solid var(--ink);
@@ -73,7 +73,7 @@
     }
     nav a.active::after { display: none; }
  
-    /* ── PAGES ── */
+    
     .page { display: none; padding: 48px 40px; max-width: 960px; margin: 0 auto; }
     .page.active { display: block; animation: fadeUp 0.35s ease; }
  
@@ -82,7 +82,7 @@
       to   { opacity: 1; transform: translateY(0); }
     }
  
-    /* ── PROFILE CARD ── */
+    
     .profile-header {
       display: grid;
       grid-template-columns: 180px 1fr 1fr;
@@ -174,7 +174,7 @@
  
     .contact-row svg { flex-shrink: 0; }
  
-    /* ── INTRO BOX ── */
+    
     .intro-box {
       border: 3px solid var(--border);
       background: var(--card-bg);
@@ -198,7 +198,7 @@
       color: #2a2a26;
     }
  
-    /* ── SECTION TITLES ── */
+    
     .section-title {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
@@ -210,7 +210,7 @@
       margin-bottom: 24px;
     }
  
-    /* ── TECH STACK ── */
+    
     .stack-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -238,7 +238,7 @@
  
     .stack-icon { font-size: 1.6rem; margin-bottom: 6px; }
  
-    /* ── CERTS ── */
+    
     .cert-list { display: flex; flex-direction: column; gap: 16px; }
  
     .cert-card {
@@ -272,7 +272,7 @@
  
     .cert-info p { font-size: 0.82rem; color: var(--muted); }
  
-    /* ── ABOUT PAGE ── */
+    
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -313,7 +313,7 @@
       line-height: 1.6;
     }
  
-    /* ── EDITABLE HINT ── */
+    
     [contenteditable]:focus { outline: 3px dashed var(--accent2); outline-offset: 2px; }
   </style>
 </head>
@@ -326,11 +326,11 @@
     <a href="certification.html" target="_blank">Certifications</a>
   </nav>
  
-  <!-- ══ PAGE: NAME / HOME ══ -->
+  
   <div class="page active">
     <div class="profile-header">
  
-      <!-- Photo -->
+      
       <div class="photo-box">
         <div class="photo-placeholder">
           <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -341,7 +341,7 @@
         </div>
       </div>
  
-      <!-- Name + Other Info -->
+      
       <div class="name-block">
         <div class="name-pill">
           <h1>YOUR NAME</h1>
@@ -352,7 +352,7 @@
         </div>
       </div>
  
-      <!-- Contact -->
+      
       <div class="contact-card">
         <div class="contact-row">
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#1a1a18" stroke-width="2">
@@ -368,7 +368,7 @@
         </div>
       </div>
  
-    </div><!-- /profile-header -->
+    </div>
  
     <div class="intro-box">
       <h2>Short Intro</h2>
