@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio</title>
+  <title>Charles Pineda | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
     :root {
       --bg: #f5f2ee;
       --ink: #1a1a18;
@@ -18,25 +18,25 @@
       --muted: #6b6b68;
       --shadow: 5px 5px 0px #1a1a18;
     }
- 
+
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--bg);
       color: var(--ink);
       min-height: 100vh;
     }
- 
-   
+
+    /* NAV */
     nav {
       background: var(--ink);
       border-bottom: 3px solid var(--ink);
       display: flex;
-      gap: 0;
+      flex-wrap: wrap; /* ← allows wrapping on small screens */
       position: sticky;
       top: 0;
       z-index: 100;
     }
- 
+
     nav a {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
@@ -52,8 +52,10 @@
       position: relative;
       text-decoration: none;
       display: inline-block;
+      flex: 1 1 auto; /* ← links grow/shrink evenly */
+      text-align: center;
     }
- 
+
     nav a::after {
       content: '';
       position: absolute;
@@ -63,34 +65,34 @@
       transform: scaleX(0);
       transition: transform 0.2s;
     }
- 
+
     nav a:hover { color: #ffffff; }
     nav a:hover::after { transform: scaleX(1); }
- 
+
     nav a.active {
       color: var(--ink);
       background: var(--accent);
     }
     nav a.active::after { display: none; }
- 
-    
+
+    /* PAGES */
     .page { display: none; padding: 48px 40px; max-width: 960px; margin: 0 auto; }
     .page.active { display: block; animation: fadeUp 0.35s ease; }
- 
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
- 
-    
+
+    /* PROFILE HEADER */
     .profile-header {
       display: grid;
       grid-template-columns: 180px 1fr 1fr;
       gap: 24px;
-      align-items: center;
+      align-items: start;
       margin-bottom: 32px;
     }
- 
+
     .photo-box {
       width: 160px;
       height: 160px;
@@ -100,27 +102,27 @@
       overflow: hidden;
       box-shadow: var(--shadow);
     }
- 
+
     .photo-box img {
       width: 100%; height: 100%;
       object-fit: cover;
       display: block;
     }
- 
+
     .photo-placeholder {
       width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
       background: #e5e2de;
     }
- 
+
     .photo-placeholder svg { width: 80px; height: 80px; opacity: 0.35; }
- 
+
     .name-block {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
- 
+
     .name-pill {
       background: var(--accent);
       border: 3px solid var(--border);
@@ -128,21 +130,21 @@
       padding: 14px 28px;
       display: inline-block;
     }
- 
+
     .name-pill h1 {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: 2rem;
       letter-spacing: 0.04em;
     }
- 
+
     .other-pill {
       border: 3px solid var(--border);
       background: var(--card-bg);
       padding: 12px 20px;
       box-shadow: var(--shadow);
     }
- 
+
     .other-pill .label {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
@@ -152,9 +154,9 @@
       color: var(--muted);
       margin-bottom: 4px;
     }
- 
+
     .other-pill p { font-size: 0.95rem; }
- 
+
     .contact-card {
       border: 3px solid var(--border);
       background: var(--card-bg);
@@ -164,17 +166,17 @@
       flex-direction: column;
       gap: 10px;
     }
- 
+
     .contact-row {
       display: flex;
       align-items: center;
       gap: 10px;
       font-size: 0.9rem;
     }
- 
+
     .contact-row svg { flex-shrink: 0; }
- 
-    
+
+    /* INTRO */
     .intro-box {
       border: 3px solid var(--border);
       background: var(--card-bg);
@@ -182,7 +184,7 @@
       padding: 28px 32px;
       margin-bottom: 0;
     }
- 
+
     .intro-box h2 {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
@@ -191,14 +193,14 @@
       text-transform: uppercase;
       margin-bottom: 14px;
     }
- 
+
     .intro-box p {
       font-size: 0.95rem;
       line-height: 1.75;
       color: #2a2a26;
     }
- 
-    
+
+    /* SECTION TITLES */
     .section-title {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
@@ -209,15 +211,15 @@
       padding-bottom: 10px;
       margin-bottom: 24px;
     }
- 
-    
+
+    /* STACK GRID */
     .stack-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       gap: 14px;
       margin-bottom: 32px;
     }
- 
+
     .stack-item {
       border: 3px solid var(--border);
       background: var(--card-bg);
@@ -230,17 +232,17 @@
       letter-spacing: 0.08em;
       transition: transform 0.15s, box-shadow 0.15s;
     }
- 
+
     .stack-item:hover {
       transform: translate(-2px, -2px);
       box-shadow: 6px 6px 0 var(--border);
     }
- 
+
     .stack-icon { font-size: 1.6rem; margin-bottom: 6px; }
- 
-    
+
+    /* CERTS */
     .cert-list { display: flex; flex-direction: column; gap: 16px; }
- 
+
     .cert-card {
       border: 3px solid var(--border);
       background: var(--card-bg);
@@ -251,9 +253,9 @@
       gap: 18px;
       transition: transform 0.15s;
     }
- 
+
     .cert-card:hover { transform: translate(-2px, -2px); }
- 
+
     .cert-badge {
       width: 48px; height: 48px;
       background: var(--accent);
@@ -262,30 +264,30 @@
       font-size: 1.4rem;
       flex-shrink: 0;
     }
- 
+
     .cert-info h3 {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
       font-size: 0.95rem;
       margin-bottom: 3px;
     }
- 
+
     .cert-info p { font-size: 0.82rem; color: var(--muted); }
- 
-    
+
+    /* ABOUT GRID */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
- 
+
     .about-card {
       border: 3px solid var(--border);
       background: var(--card-bg);
       box-shadow: 5px 5px 0 var(--border);
       padding: 24px;
     }
- 
+
     .about-card h3 {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
@@ -295,9 +297,9 @@
       color: var(--muted);
       margin-bottom: 10px;
     }
- 
+
     .about-card p { font-size: 0.92rem; line-height: 1.7; }
- 
+
     .highlight-block {
       border: 3px solid var(--border);
       background: var(--accent);
@@ -305,54 +307,109 @@
       padding: 24px;
       margin-bottom: 20px;
     }
- 
+
     .highlight-block p {
       font-family: 'Syne', sans-serif;
       font-weight: 600;
       font-size: 1.1rem;
       line-height: 1.6;
     }
- 
-    
+
+    /* =====================
+       MOBILE BREAKPOINTS
+    ===================== */
+
+    /* Tablet / mid-size */
+    @media (max-width: 760px) {
+      .profile-header {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+      }
+
+      .photo-box {
+        grid-column: 1 / -1; /* full width on its own row */
+        width: 120px;
+        height: 120px;
+      }
+
+      .name-pill h1 { font-size: 1.6rem; }
+      .page { padding: 32px 24px; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Phone */
+    @media (max-width: 540px) {
+      .profile-header {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-box {
+        width: 110px;
+        height: 110px;
+      }
+
+      .name-pill h1 { font-size: 1.35rem; }
+      .name-pill { padding: 10px 16px; }
+      .other-pill { padding: 10px 14px; }
+
+      .contact-card { padding: 14px 16px; }
+      .contact-row { font-size: 0.82rem; word-break: break-all; }
+
+      .intro-box { padding: 20px 18px; }
+      .page { padding: 20px 14px; }
+
+      nav a {
+        padding: 14px 12px;
+        font-size: 0.7rem;
+        letter-spacing: 0.07em;
+      }
+
+      .stack-grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+        gap: 10px;
+      }
+
+      .cert-card { padding: 14px 16px; gap: 12px; }
+      .cert-info h3 { font-size: 0.88rem; }
+
+      .highlight-block p { font-size: 0.95rem; }
+    }
+
     [contenteditable]:focus { outline: 3px dashed var(--accent2); outline-offset: 2px; }
   </style>
 </head>
 <body>
- 
+
   <nav role="navigation">
     <a href="#" class="active">Name</a>
-    <a href="about.html" target="_blank">About</a>
-    <a href="techstack.html" target="_blank">Tech Stack</a>
-    <a href="certification.html" target="_blank">Certifications</a>
+    <a href="about.html">About</a>
+    <a href="techstack.html">Tech Stack</a>
+    <a href="certification.html">Certifications</a>
   </nav>
- 
-  
+
   <div class="page active">
     <div class="profile-header">
- 
-      
+
       <div class="photo-box">
         <img src="aaaadsdw.jfif" alt="Profile photo">
       </div>
- 
-      
+
       <div class="name-block">
         <div class="name-pill">
           <h1>Charles Pineda</h1>
         </div>
         <div class="other-pill">
           <div class="label">Other Info</div>
-          <p>BSIT Undergraduate Based in Bacoor, Cavite, PH</p>
+          <p>BSIT Undergraduate · Bacoor, Cavite, PH</p>
         </div>
       </div>
- 
-      
+
       <div class="contact-card">
         <div class="contact-row">
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#1a1a18" stroke-width="2">
             <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
           </svg>
-          <span>damejameson329@gmail.com</span>
+          <span>charlesgabrielle.pineda@sdca.edu.ph</span>
         </div>
         <div class="contact-row">
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#1a1a18" stroke-width="2">
@@ -361,16 +418,16 @@
           <span>+63 969 140 1257</span>
         </div>
       </div>
- 
+
     </div>
- 
+
     <div class="intro-box">
       <h2>Short Intro</h2>
       <p>
-        lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. 
+        A passionate and dedicated 2nd year IT student with a great interest in web development and software engineering with a solid foundation in programming.
       </p>
     </div>
   </div>
- 
+
 </body>
 </html>

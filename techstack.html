@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
     :root {
       --bg: #f5f2ee;
       --ink: #1a1a18;
@@ -18,25 +18,24 @@
       --muted: #6b6b68;
       --shadow: 5px 5px 0px #1a1a18;
     }
- 
+
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--bg);
       color: var(--ink);
       min-height: 100vh;
     }
- 
-    
+
     nav {
       background: var(--ink);
       border-bottom: 3px solid var(--ink);
       display: flex;
-      gap: 0;
+      flex-wrap: wrap;
       position: sticky;
       top: 0;
       z-index: 100;
     }
- 
+
     nav a {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
@@ -52,8 +51,10 @@
       position: relative;
       text-decoration: none;
       display: inline-block;
+      flex: 1 1 auto;
+      text-align: center;
     }
- 
+
     nav a::after {
       content: '';
       position: absolute;
@@ -63,26 +64,24 @@
       transform: scaleX(0);
       transition: transform 0.2s;
     }
- 
+
     nav a:hover { color: #ffffff; }
     nav a:hover::after { transform: scaleX(1); }
- 
+
     nav a.active {
       color: var(--ink);
       background: var(--accent);
     }
     nav a.active::after { display: none; }
- 
-    
+
     .page { display: none; padding: 48px 40px; max-width: 960px; margin: 0 auto; }
     .page.active { display: block; animation: fadeUp 0.35s ease; }
- 
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
- 
-    
+
     .section-title {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
@@ -93,15 +92,14 @@
       padding-bottom: 10px;
       margin-bottom: 24px;
     }
- 
-    
+
     .stack-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       gap: 14px;
       margin-bottom: 32px;
     }
- 
+
     .stack-item {
       border: 3px solid var(--border);
       background: var(--card-bg);
@@ -114,24 +112,55 @@
       letter-spacing: 0.08em;
       transition: transform 0.15s, box-shadow 0.15s;
     }
- 
+
     .stack-item:hover {
       transform: translate(-2px, -2px);
       box-shadow: 6px 6px 0 var(--border);
     }
- 
+
     .stack-icon { font-size: 1.6rem; margin-bottom: 6px; }
- 
-    
+
     [contenteditable]:focus { outline: 3px dashed var(--accent2); outline-offset: 2px; }
+
+    /* =====================
+       MOBILE BREAKPOINTS
+    ===================== */
+
+    @media (max-width: 600px) {
+      .page { padding: 24px 16px; }
+
+      nav a {
+        padding: 14px 12px;
+        font-size: 0.7rem;
+        letter-spacing: 0.07em;
+      }
+
+      .stack-grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+
+      .stack-item {
+        padding: 14px 8px;
+        font-size: 0.72rem;
+      }
+
+      .stack-icon { font-size: 1.4rem; }
+
+      .section-title { font-size: 0.9rem; margin-bottom: 16px; }
+    }
   </style>
 </head>
 <body>
- 
+
   <nav role="navigation">
     <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="techstack.html" class="active">Tech Stack</a>
+    <a href="certification.html">Certifications</a>
   </nav>
- 
+
   <div class="page active">
     <div class="section-title">Languages & Frameworks</div>
     <div class="stack-grid">
@@ -147,6 +176,6 @@
       <div class="stack-item"><div class="stack-icon"></div>Netbeans</div>
     </div>
   </div>
- 
+
 </body>
 </html>
