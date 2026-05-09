@@ -6,6 +6,8 @@
   <title>Tech Stack | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css" />
+  <!-- Anime.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
 <body>
 
@@ -16,48 +18,213 @@
     <a href="certification.html">Certifications</a>
   </nav>
 
-  <img
-    src="spiderswing.svg"
-    class="spider-swing"
-    alt="Spider swinging animation"
-    style="position: fixed; top: 20%; left: 0; width: 300px; height: 100px; pointer-events: none; opacity: 0.25; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); z-index: 0; animation: swingAcross 8s linear infinite; will-change: transform;"
-  />
-
-  <img
-    src="batman.svg"
-    class="batman-glide"
-    alt="Batman gliding"
-    style="position: fixed; bottom: 0; right: 0; width: 200px; height: 120px; pointer-events: none; opacity: 0.3; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); z-index: 0; will-change: transform;"
-  />
+  <!-- Your animations unchanged -->
+  <img src="spiderswing.svg" class="spider-swing" alt="Spider swinging animation" style="position: fixed; top: 20%; left: 0; width: 300px; height: 100px; pointer-events: none; opacity: 0.25; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); z-index: 0; animation: swingAcross 8s linear infinite; will-change: transform;" />
+  <img src="batman.svg" class="batman-glide" alt="Batman gliding" style="position: fixed; bottom: 0; right: 0; width: 200px; height: 120px; pointer-events: none; opacity: 0.3; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); z-index: 0; will-change: transform;" />
 
   <div class="page active">
     <div class="section-title">Languages & Frameworks</div>
     <div class="stack-grid">
-      <div class="stack-item"><div class="stack-icon"><img src="html.png" alt="HTML icon"></div>HTML</div>
-      <div class="stack-item"><div class="stack-icon"><img src="css-3.svg" alt="CSS icon"></div>CSS</div>
-      <div class="stack-item"><div class="stack-icon"><img src="java.png" alt="Java icon"></div>Java</div>
-      <div class="stack-item"><div class="stack-icon"><img src="sql.svg" alt="SQL icon"></div>SQL</div>
-      <div class="stack-item"><div class="stack-icon"><img src="postgresql.png" alt="PostgreSQL icon"></div>PostgreSQL</div>
+      <div class="stack-item draggable" data-tech="HTML"><div class="stack-icon"><img src="html.png" alt="HTML icon"></div></div>
+      <div class="stack-item draggable" data-tech="CSS"><div class="stack-icon"><img src="css-3.svg" alt="CSS icon"></div>CSS</div>
+      <div class="stack-item draggable" data-tech="Java"><div class="stack-icon"><img src="java.png" alt="Java icon"></div></div>
+      <div class="stack-item draggable" data-tech="MySQL"><div class="stack-icon"><img src="mysql-logo.svg" alt="MySQL icon"></div></div>
+      <div class="stack-item draggable" data-tech="PostgreSQL"><div class="stack-icon"><img src="postgresql.png" alt="PostgreSQL icon"></div>PostgreSQL</div>
     </div>
 
     <div class="section-title">Tools & Platforms</div>
     <div class="stack-grid">
-      <div class="stack-item"><div class="stack-icon"><img src="git.png" alt="Git icon"></div>Git</div>
-      <div class="stack-item"><div class="stack-icon"><img src="github.png" alt="GitHub icon"></div>GitHub</div>
-      <div class="stack-item"><div class="stack-icon"><img src="vscode.png" alt="VS Code icon"></div>VS Code</div>
-      <div class="stack-item"><div class="stack-icon"><img src="netbeans.png" alt="Netbeans icon"></div>Netbeans</div>
+      <div class="stack-item draggable" data-tech="Git"><div class="stack-icon"><img src="git.png" alt="Git icon"></div>Git</div>
+      <div class="stack-item draggable" data-tech="GitHub"><div class="stack-icon"><img src="github.png" alt="GitHub icon"></div>GitHub</div>
+      <div class="stack-item draggable" data-tech="VS Code"><div class="stack-icon"><img src="vscode.png" alt="VS Code icon"></div>VS Code</div>
+      <div class="stack-item draggable" data-tech="Netbeans"><div class="stack-icon"><img src="netbeans.png" alt="Netbeans icon"></div>Netbeans</div>
     </div>
   </div>
 
   <script>
-    // Pause swing animation on hover for interactivity
+    class PersistentDraggableStack {
+      constructor() {
+        this.items = document.querySelectorAll('.draggable');
+        this.isDragging = false;
+        this.isLongPressed = false;
+        this.longPressTimer = null;
+        this.currentTarget = null;
+        this.startX = 0;
+        this.startY = 0;
+        this.initialTransform = new Map(); // Store initial positions
+        
+        this.init();
+      }
+    
+      init() {
+        // Store initial positions
+        this.items.forEach(item => {
+          const rect = item.getBoundingClientRect();
+          this.initialTransform.set(item, {
+            x: rect.left,
+            y: rect.top,
+            translateX: 0,
+            translateY: 0
+          });
+          this.makeInteractive(item);
+        });
+      }
+    
+      makeInteractive(item) {
+        item.addEventListener('mousedown', (e) => this.handleStart(e));
+        item.addEventListener('touchstart', (e) => this.handleStart(e), { passive: false });
+    
+        document.addEventListener('mousemove', (e) => this.handleMove(e));
+        document.addEventListener('touchmove', (e) => this.handleMove(e), { passive: false });
+        document.addEventListener('mouseup', () => this.handleEnd());
+        document.addEventListener('touchend', () => this.handleEnd());
+        document.addEventListener('touchcancel', () => this.handleEnd());
+      }
+    
+      handleStart(e) {
+        e.preventDefault();
+        this.currentTarget = e.currentTarget || e.target.closest('.draggable');
+        if (!this.currentTarget) return;
+    
+        this.startX = e.clientX || (e.touches && e.touches[0].clientX);
+        this.startY = e.clientY || (e.touches && e.touches[0].clientY);
+    
+        // Start long press timer
+        this.longPressTimer = setTimeout(() => {
+          this.startLongPress();
+        }, 500);
+    
+        this.currentTarget.classList.add('pressed');
+        this.isDragging = true;
+      }
+    
+      startLongPress() {
+        if (!this.currentTarget) return;
+        
+        this.isLongPressed = true;
+        this.currentTarget.classList.add('long-pressed');
+        
+        // Lift and grow effect
+        anime({
+          targets: this.currentTarget,
+          scale: 1.3,
+          translateY: -25,
+          boxShadow: '0 25px 60px rgba(0,123,255,0.4)',
+          zIndex: 1000,
+          duration: 250,
+          easing: 'easeOutBack'
+        });
+      }
+    
+      handleMove(e) {
+        if (!this.currentTarget || !this.isDragging) return;
+    
+        e.preventDefault();
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+        
+        const deltaX = clientX - this.startX;
+        const deltaY = clientY - this.startY;
+        
+        // Update position in real-time
+        const style = this.currentTarget.style;
+        style.transform = `translate(${deltaX}px, ${deltaY - 25}px) scale(1.3)`;
+        style.zIndex = '1000';
+        
+        // Subtle rotation for realism
+        style.transform += ` rotate(${deltaX * 0.01}deg)`;
+      }
+    
+      handleEnd() {
+        if (!this.currentTarget) return;
+    
+        // Clear timer
+        if (this.longPressTimer) {
+          clearTimeout(this.longPressTimer);
+          this.longPressTimer = null;
+        }
+    
+        const rect = this.currentTarget.getBoundingClientRect();
+        
+        // **SAVE NEW POSITION** - Cards stay where dropped!
+        const newPos = {
+          translateX: rect.left - this.initialTransform.get(this.currentTarget).x,
+          translateY: rect.top - this.initialTransform.get(this.currentTarget).y
+        };
+        
+        this.initialTransform.set(this.currentTarget, {
+          ...this.initialTransform.get(this.currentTarget),
+          translateX: newPos.translateX,
+          translateY: newPos.translateY
+        });
+    
+        // Smooth settle animation
+        anime({
+          targets: this.currentTarget,
+          scale: [1.3, 1.05, 1],
+          translateX: newPos.translateX,
+          translateY: newPos.translateY,
+          rotate: 0,
+          boxShadow: [
+            '0 25px 60px rgba(0,123,255,0.4)',
+            '0 8px 25px rgba(0,0,0,0.2)'
+          ],
+          zIndex: 10,
+          duration: 500,
+          easing: 'easeOutElastic(1, 0.6)'
+        });
+    
+        // Reset classes and dragging state
+        this.currentTarget.classList.remove('pressed', 'long-pressed');
+        this.isLongPressed = false;
+        this.isDragging = false;
+        this.currentTarget = null;
+      }
+    
+      // Reset all cards to original positions (bonus feature!)
+      resetAll() {
+        this.items.forEach(item => {
+          anime({
+            targets: item,
+            translateX: 0,
+            translateY: 0,
+            scale: 1,
+            rotate: 0,
+            duration: 600,
+            easing: 'easeOutExpo'
+          });
+          this.initialTransform.set(item, { x: 0, y: 0, translateX: 0, translateY: 0 });
+        });
+      }
+    }
+    
+    // Initialize
+    const stack = new PersistentDraggableStack();
+    
+    // **BONUS: Double-click any card to reset ALL cards**
+    document.addEventListener('dblclick', (e) => {
+      if (e.target.closest('.draggable')) {
+        if (confirm('Reset all cards to original positions?')) {
+          stack.resetAll();
+        }
+      }
+    });
+    
+    // Entrance animation
+    anime({
+      targets: '.stack-item',
+      translateY: [50, 0],
+      opacity: [0, 1],
+      scale: [0.9, 1],
+      delay: anime.stagger(100),
+      duration: 800,
+      easing: 'easeOutBack'
+    });
+    
+    // Spider animation
     const spiderEl = document.querySelector('.spider-swing');
     if (spiderEl) {
       spiderEl.addEventListener('mouseenter', () => spiderEl.style.animationPlayState = 'paused');
       spiderEl.addEventListener('mouseleave', () => spiderEl.style.animationPlayState = 'running');
     }
-  </script>
-
-</body>
-</html>
-
+    </script>
