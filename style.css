@@ -354,6 +354,21 @@ nav a.active::after { display: none; }
   padding: 24px;
 }
 
+.about-icon { 
+  font-size: 1.4rem; 
+}
+.profile-icon {
+  max-width: 60%;  
+  max-height: 65%; 
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profile-icon:hover {
+  transform: scale(1.05);
+}
+
 .about-card h3 {
   font-family: 'Syne', sans-serif;
   font-weight: 700;
@@ -459,6 +474,7 @@ nav a.active::after { display: none; }
   body {
     padding-top: 72px;
   }
+  
 
   .page { padding: 24px 16px; }
 
