@@ -305,7 +305,7 @@ nav a.active::after { display: none; }
 .cert-card:visited {
   border: 3px solid var(--border);
   background: var(--card-bg);
-  box-shadow: 5px 5px 0 var(--border);
+  box-shadow: 5px 5px 0 var(--border); ;
   padding: 20px 24px;
   display: flex;
   align-items: center;
@@ -333,7 +333,7 @@ nav a.active::after { display: none; }
   margin-bottom: 3px;
 }
 
-.cert-info p { font-size: 0.82rem; color: var(--muted); }
+.cert-info p { font-size: 0.82rem; color: var(--muted); font-family: 'Syne', sans-serif;}
 
 /* ABOUT GRID */
 .about-grid {
