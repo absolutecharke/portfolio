@@ -67,9 +67,15 @@ nav {
   border-bottom: 3px solid var(--ink);
   display: flex;
   flex-wrap: nowrap;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
+}
+
+body {
+  padding-top: 60px;
 }
 
 nav a {
@@ -324,6 +330,7 @@ nav a.active::after { display: none; }
   display: flex; align-items: center; justify-content: center;
   font-size: 1.4rem;
   flex-shrink: 0;
+  background-color: white;
 }
 
 .cert-info h3 {
@@ -591,38 +598,6 @@ nav a.active::after { display: none; }
   .contact-card { padding: 14px 16px; }
   .contact-row { font-size: 0.82rem; word-break: break-all; }
   .intro-box { padding: 14px 16px; }
-
-  .draggable {
-    cursor: grab;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    user-select: none;
-    touch-action: none;
-    position: relative;
-    will-change: transform;
-    transform-origin: center;
-  }
-
-  .draggable.pressed {
-    cursor: grabbing !important;
-  }
-
-  .draggable:hover:not(.long-pressed) {
-    transform: scale(1.02);
-  }
-
-  .draggable.moved::after {
-    content: '✨';
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    font-size: 12px;
-    animation: sparkle 2s infinite;
-  }
-
-  @keyframes sparkle {
-    0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
-    50%       { opacity: 1; transform: scale(1) rotate(180deg); }
-  }
 
   @media (max-width: 600px) {
   .batman-group {
