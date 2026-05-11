@@ -46,9 +46,9 @@ spideyGif.src = 'spidangle.gif';
 spideyGif.alt = 'Spider-Man dangling';
 spideyGif.style.cssText = `
   position: fixed;
-  top: 1px;
-  left: 12px;
-  width: 550px;
+  top: 0px;
+  left: 8px;
+  width: 240px;
   height: auto;
   z-index: 9999;
   pointer-events: none;
@@ -71,7 +71,8 @@ document.querySelectorAll('.stack-item').forEach(item => {
       text: info.description,
       width: 600,
       padding: "3em",
-      color: "#716add",
+      color: "black",
+      FontFace: "'Syne', sans-serif",
       background: "#fff url(spidey pic.gif)",
       confirmButtonText: "Got it",
       confirmButtonColor: "#c8f04a",

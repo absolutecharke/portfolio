@@ -616,6 +616,8 @@ nav a.active::after { display: none; }
     transform: scale(0.55) translate(-140px, 60px);
   }
 }
-
+.swal2-html-container {
+  font-family: 'Syne', sans-serif !important;
+}
 
 }
