@@ -13,10 +13,27 @@
   <div class="comic-bg" aria-hidden="true">
     <svg width="100%" height="100%" viewBox="0 0 680 340" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <style>
-        @keyframes batmanPunch { 0%,100% { transform: translateX(0px); } 40% { transform: translateX(28px); } 60% { transform: translateX(28px); } 85% { transform: translateX(0px); } }
-        @keyframes jokerFly { 0%,35% { transform: translateX(0px) rotate(0deg); } 55%,75% { transform: translateX(55px) rotate(12deg); } 100% { transform: translateX(0px) rotate(0deg); } }
-        @keyframes powFlash { 0%,30% { opacity:0; transform:scale(0.4) rotate(-8deg); } 45%,65% { opacity:1; transform:scale(1) rotate(-8deg); } 80%,100% { opacity:0; transform:scale(0.4) rotate(-8deg); } }
-        @keyframes motionLines { 0%,30% { opacity:0; } 42%,58% { opacity:0.5; } 70%,100% { opacity:0; } }
+        @keyframes batmanPunch {
+          0%,100%  { transform: translateX(0px); }
+          40%      { transform: translateX(28px); }
+          60%      { transform: translateX(28px); }
+          85%      { transform: translateX(0px); }
+        }
+        @keyframes jokerFly {
+          0%,35%   { transform: translateX(0px) rotate(0deg); }
+          55%,75%  { transform: translateX(55px) rotate(12deg); }
+          100%     { transform: translateX(0px) rotate(0deg); }
+        }
+        @keyframes powFlash {
+          0%,30%   { opacity:0; transform:scale(0.4) rotate(-8deg); }
+          45%,65%  { opacity:1; transform:scale(1) rotate(-8deg); }
+          80%,100% { opacity:0; transform:scale(0.4) rotate(-8deg); }
+        }
+        @keyframes motionLines {
+          0%,30%   { opacity:0; }
+          42%,58%  { opacity:0.5; }
+          70%,100% { opacity:0; }
+        }
         .batman-group { animation: batmanPunch 8s ease-in-out infinite; transform-origin: 210px 220px; }
         .joker-group { animation: jokerFly 8s ease-in-out infinite; transform-origin: 410px 220px; }
         .pow-group { animation: powFlash 8s ease-in-out infinite; transform-origin: 310px 185px; }
@@ -106,110 +123,79 @@
   </div>
 
   <nav class="navbar navbar-expand-md fixed-top custom-nav">
-  <div class="container-fluid px-3">
-    <a class="navbar-brand d-md-none" href="#" style="font-family: 'Syne'; font-weight: 800; color: var(--accent);">My Portfolio</a>
+    <div class="container-fluid px-3">
+      <a class="navbar-brand d-md-none" href="#">Portfolio</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNavbar" aria-controls="portfolioNavbar" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNavbar" aria-controls="portfolioNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="portfolioNavbar">
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="index.html"style="color: var(--accent);";>Home</a>
-        <a class="nav-link" href="about.html"style="color: var(--accent);" >About</a>
-        <a class="nav-link" href="techstack.html"style="color: var(--accent);">Tech Stack</a>
-        <a class="nav-link" href="certification.html"style="color: var(--accent);">Certifications</a>
-        <a class="nav-link active" href="contact.html">Contact</a>
+      <div class="collapse navbar-collapse" id="portfolioNavbar">
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="techstack.html">Tech Stack</a>
+          <a class="nav-link" href="certification.html">Certifications</a>
+          <a class="nav-link active" href="contact.html">Contact</a>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
-<div class="page active">
-  <div class="section-title">Contacts</div>
- <div class="social-container">
-  <div class="social-item">
-    <h3>GITHUB</h3>
-    <a href="https://github.com/absolutecharke" target="_blank" rel="noopener noreferrer">
-      <img src="github-white-icon.webp" alt="GitHub" class="social-icon">
-    </a>
-  </div>
-  
-  <div class="social-item">
-    <h3>LINKEDIN</h3>
-    <a href="https://www.linkedin.com/in/charlespineda2/" target="_blank" rel="noopener noreferrer">
-      <img src="LinkedIn.png" alt="LinkedIn" class="social-icon">
-    </a>
-  </div>
-</div>
-<div class="container mt-5 mb-5">
-  <div class="form-wrapper-comic">
-    <div class="about-card contact-form-card">
-      <div class="card-header-comic">
-        <h3 class="m-0">Send an email!</h3>
+  </nav>
+
+  <div class="page active">
+    <div class="section-title">Contacts</div>
+    
+    <div class="social-container">
+      <div class="social-item">
+        <h3>GITHUB</h3>
+        <a href="https://github.com/absolutecharke" target="_blank" rel="noopener noreferrer">
+          <img src="github-white-icon.webp" alt="GitHub" class="social-icon">
+        </a>
       </div>
       
-      <form id="contact-form" class="p-3">
-        <div class="mb-3">
-          <label class="form-label-comic">NAME</label>
-          <input type="text" name="user_name" class="form-control custom-input" placeholder="Hero Name" required>
+      <div class="social-item">
+        <h3>LINKEDIN</h3>
+        <a href="https://www.linkedin.com/in/charlespineda2/" target="_blank" rel="noopener noreferrer">
+          <img src="LinkedIn.png" alt="LinkedIn" class="social-icon">
+        </a>
+      </div>
+    </div>
+
+    <div class="container mt-5 mb-5">
+      <div class="form-wrapper-comic">
+        <div class="about-card contact-form-card">
+          <div class="card-header-comic">
+            <h3 class="m-0">Send an email!</h3>
+          </div>
+          
+          <form id="contact-form" class="p-3">
+            <div class="mb-3">
+              <label class="form-label-comic">NAME</label>
+              <input type="text" name="user_name" class="form-control custom-input" placeholder="Hero Name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label-comic">EMAIL</label>
+              <input type="email" name="user_email" class="form-control custom-input" placeholder="secret@identity.com" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label-comic">MESSAGE</label>
+              <textarea name="message" class="form-control custom-input" rows="4" placeholder="Type your transmission here..." required></textarea>
+            </div>
+            
+            <button type="submit" class="send-btn-comic">
+              <span>SEND!</span>
+            </button>
+          </form>
+          <div id="form-status" class="mt-3 text-center"></div>
         </div>
-        <div class="mb-3">
-          <label class="form-label-comic">EMAIL</label>
-          <input type="email" name="user_email" class="form-control custom-input" placeholder="secret@identity.com" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label-comic">MESSAGE</label>
-          <textarea name="message" class="form-control custom-input" rows="4" placeholder="Type your transmission here..." required></textarea>
-        </div>
-        
-        <button type="submit" class="send-btn-comic">
-          <span>SEND!</span>
-        </button>
-      </form>
-      <div id="form-status" class="mt-3 text-center"></div>
+      </div>
     </div>
   </div>
-</div>
+
+  <!-- CDN Dependency Modules -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  
-  
-  <script>
-    // Anime.js Integration for Contact Cards
-    anime({
-      targets: '.social-item',
-      translateY: [50, 0],
-      opacity: [0, 1],
-      delay: anime.stagger(750), // Cards pop up one after the other
-      easing: 'easeOutElastic(1, .8)', // Bouncy comic-book feel
-      duration: 1000
-    });
-  </script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-<script type="text/javascript">
-  (function() {
-    emailjs.init("4OhWlBQqcawJHwPXC");
-  })();
-
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const status = document.getElementById('form-status');
-    status.innerText = "SENDING...";
-    status.style.color = "var(--accent)";
-
-    emailjs.sendForm('service_pco7oze', 'template_yus04gt', this)
-      .then(function() {
-        status.innerText = "MESSAGE SENT SUCCESSFULLY! THANK YOU FOR REACHING OUT.";
-        status.style.color = "#00ff00";
-        document.getElementById('contact-form').reset();
-      }, function(error) {
-        status.innerText = "FAILED TO SEND. PLEASE TRY AGAIN.";
-        status.style.color = "#ff0000";
-        console.log('FAILED...', error);
-      });
-  });
-</script>
+  <script src="main.js"></script>
 </body>
 </html>

@@ -10,9 +10,7 @@
 </head>
 <body>
 <div class="comic-bg" aria-hidden="true">
-  <svg width="100%" height="100%" viewBox="0 0 680 340"
-  preserveAspectRatio="none"
-  xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="100%" viewBox="0 0 680 340" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <style>
       @keyframes batmanPunch {
         0%,100%  { transform: translateX(0px); }
@@ -35,22 +33,10 @@
         42%,58%  { opacity:0.5; }
         70%,100% { opacity:0; }
       }
-      .batman-group { 
-  animation: batmanPunch 8s ease-in-out infinite; 
-  transform-origin: 210px 220px; 
-}
-
-.joker-group { 
-  animation: jokerFly 8s ease-in-out infinite; 
-  transform-origin: 410px 220px; 
-}
-.pow-group { 
-  animation: powFlash 8s ease-in-out infinite; 
-  transform-origin: 310px 185px; 
-}
-.motion-lines { 
-  animation: motionLines 8s ease-in-out infinite; 
-}
+      .batman-group { animation: batmanPunch 8s ease-in-out infinite; transform-origin: 210px 220px; }
+      .joker-group { animation: jokerFly 8s ease-in-out infinite; transform-origin: 410px 220px; }
+      .pow-group { animation: powFlash 8s ease-in-out infinite; transform-origin: 310px 185px; }
+      .motion-lines { animation: motionLines 8s ease-in-out infinite; }
     </style>
     <rect width="680" height="340" fill="#0d0b1a"/>
     <rect x="40" y="18" width="3" height="3" fill="#fff" opacity="0.6"/>
@@ -138,9 +124,10 @@
     </g>
   </svg>
 </div>
-  <nav class="navbar navbar-expand-md fixed-top custom-nav">
+
+<nav class="navbar navbar-expand-md fixed-top custom-nav">
   <div class="container-fluid px-3">
-    <a class="navbar-brand d-md-none" href="#" style="font-family: 'Syne'; font-weight: 800; color: var(--accent);">My Portfolio</a>
+    <a class="navbar-brand d-md-none" href="#">Portfolio</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNavbar" aria-controls="portfolioNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -148,65 +135,71 @@
 
     <div class="collapse navbar-collapse" id="portfolioNavbar">
       <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="index.html"style="color: var(--accent);">Home</a>
-        <a class="nav-link" href="about.html" style="color: var(--accent);">About</a>
-        <a class="nav-link" href="techstack.html" style="color: var(--accent);">Tech Stack</a>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="techstack.html">Tech Stack</a>
         <a class="nav-link active" href="certification.html">Certifications</a>
-        <a class="nav-link" href="contact.html" style="color: var(--accent);">Contact</a>
+        <a class="nav-link" href="contact.html">Contact</a>
       </div>
     </div>
   </div>
 </nav>
 
-  
-
   <div class="page active">
     <div class="section-title">Certifications</div>
     <div class="cert-list">
-      <a class="cert-card" href="https://www.credly.com/badges/be4fa5d2-6551-4cd2-9711-a1925f8bef8e" target="_blank" rel="noopener noreferrer">
+      <!-- Python Card -->
+      <a class="cert-card" href="#" data-bs-toggle="modal" data-bs-target="#pythonModal">
         <div class="cert-badge">
-          <img src="pythonbadge.png" alt="Python Essentials 1 badge icon" style="max-width: 100%; max-height: 100%; display: block;">
+          <img src="pythonbadge.png" alt="Python Essentials 1 badge icon" class="badge-img">
         </div>
         <div class="cert-info">
-          <h3>Python Essentials 1 Badge</h3>
+          <h3>Python Essentials 1</h3>
           <p>Cisco Networking Academy</p>
         </div>
       </a>
 
-      <a class="cert-card" href="https://www.credly.com/badges/c0d22a08-aca5-4efa-b632-0643a1a1cd1a" target="_blank" rel="noopener noreferrer">
+      <!-- Networking Card -->
+      <a class="cert-card" href="#" data-bs-toggle="modal" data-bs-target="#networkingModal">
         <div class="cert-badge">
-          <img src="networking.png" alt="Networking Basics badge icon" style="max-width: 100%; max-height: 100%; display: block;">
+          <img src="networking.png" alt="Networking Basics badge icon" class="badge-img">
         </div>
         <div class="cert-info">
           <h3>Networking Basics</h3>
           <p>Cisco Networking Academy</p>
         </div>
       </a>
-          <a class="cert-card" href="https://www.credly.com/earner/earned/badge/7eae4388-cba1-418d-9f98-3f8b2f128c27" target="_blank" rel="noopener noreferrer">
-            <div class="cert-badge">
-              <img src="ppt.png" alt="Microsoft Office Specialist: PowerPoint" style="max-width: 100%; max-height: 100%; display: block;">
-            </div>
-            <div class="cert-info">
-              <h3>Microsoft Office Specialist: PowerPoint Associate (Microsoft 365 Apps)</h3>
-              <p>Microsoft</p>
-            </div>
-          </a>
-
-          <a class="cert-card" href="https://www.credly.com/earner/earned/badge/688a47ba-8d62-4aec-954e-763ba8f8eb27" target="_blank" rel="noopener noreferrer">
-            <div class="cert-badge">
-              <img src="word.png" alt="
-              Microsoft Office Specialist: Word Associate" style="max-width: 100%; max-height: 100%; display: block;">
-            </div>
-            <div class="cert-info">
-              <h3>
-                Microsoft Office Specialist: Word Associate (Microsoft 365 Apps)</h3>
-              <p>Microsoft</p>
-            </div>
-          </a>
     </div>
-
   </div>
+
+<!-- Modal for Python -->
+<div class="modal fade" id="pythonModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white" data-bs-toggle="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center p-4">
+        <img src="pythoncert.png" class="img-fluid rounded" alt="Python Certificate">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Networking -->
+<div class="modal fade" id="networkingModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white" data-bs-toggle="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center p-4">
+        <img src="networkingcert.png" class="img-fluid rounded" alt="Networking Certificate">
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

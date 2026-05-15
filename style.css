@@ -1,4 +1,8 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
 html,
 body {
@@ -34,8 +38,6 @@ body > * {
   --shadow: 5px 5px 0px #1a1a18;
 }
 
-
-
 /* =====================
    COMIC BG
 ===================== */
@@ -53,7 +55,7 @@ body > * {
 .comic-bg svg {
   width: 100%;
   height: 100%;
-  min-width: block;
+  display: block;
 }
 
 nav,
@@ -116,7 +118,12 @@ nav a.active {
 }
 nav a.active::after { display: none; }
 
-.page { display: none; padding: 48px 40px; max-width: 960px; margin: 0 auto; }
+.page { 
+  display: none; 
+  padding: 48px 20px; 
+  max-width: 960px; 
+  margin: 0 auto; 
+}
 .page.active { display: block; animation: fadeUp 0.35s ease; }
 
 @keyframes fadeUp {
@@ -201,6 +208,7 @@ nav a.active::after { display: none; }
   transform: translate(-2px, -2px) !important;
   box-shadow: 5px 5px 0 #1a1a18 !important;
 }
+
 /* PROFILE HEADER */
 .profile-header {
   display: flex;
@@ -235,23 +243,22 @@ nav a.active::after { display: none; }
   flex-shrink: 0;
   text-align: center;
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.9);
   border-radius: 25px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
-  white-space: nowrap;
   margin-bottom: 10%;
   background-color: #c7f04a;
   font-family: 'Syne', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .name-pill h1 {
   margin: 0;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.3rem, 5vw, 2.5rem);
   font-weight: 600;
   letter-spacing: -0.02em;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 
 .other-pill {
@@ -259,8 +266,10 @@ nav a.active::after { display: none; }
   background: var(--card-bg);
   padding: 14px 18px;
   box-shadow: var(--shadow);
-  margin-bottom: 2%;
+  margin-bottom: 10px;
   font-family: 'Syne', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .other-pill .label {
@@ -283,8 +292,10 @@ nav a.active::after { display: none; }
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 2%;
+  margin-bottom: 15px;
   font-family: 'Syne', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .contact-row {
@@ -302,10 +313,9 @@ nav a.active::after { display: none; }
   background: var(--card-bg);
   box-shadow: 7px 7px 0px var(--ink);
   padding: 16px 20px;
-  margin-bottom: 0;
   width: 100%;
-  margin-left: 0;
   font-family: 'Syne', sans-serif;
+  box-sizing: border-box;
 }
 
 .intro-box h2 {
@@ -342,11 +352,12 @@ nav a.active::after { display: none; }
   box-shadow: 6px 6px 0 var(--border);
   transition: 0.2s;
 }
+
 .cert-card:link,
 .cert-card:visited {
   border: 3px solid var(--border);
   background: var(--card-bg);
-  box-shadow: 5px 5px 0 var(--border); ;
+  box-shadow: 5px 5px 0 var(--border); 
   padding: 20px 24px;
   display: flex;
   align-items: center;
@@ -358,7 +369,7 @@ nav a.active::after { display: none; }
 
 .cert-card:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0 var(black);
+  box-shadow: 8px 8px 0 var(--border);
   color: inherit;
 }
 
@@ -401,8 +412,8 @@ nav a.active::after { display: none; }
 }
 
 .profile-icon {
-  max-width: 60%;
-  max-height: 65%;
+  max-width: 100%;
+  height: auto;
   display: block;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -444,54 +455,55 @@ nav a.active::after { display: none; }
   font-size: 1.7rem;
   line-height: 1.6;
 }
-/* Forces the grid into two columns even on smaller screens */
+
 .contact-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Side-by-side */
+  grid-template-columns: 1fr 1fr;
   gap: 15px;
-  max-width: 500px; /* Keeps the whole section from getting too wide */
-  margin: 0 auto;   /* Centers the grid on the page */
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-/* Reduces the size of the contact cards and icons */
 .contact-layout .about-card {
-  padding: 15px; /* Smaller internal spacing */
+  padding: 15px;
 }
 
 .contact-layout .profile-icon {
-  width: 400px;  /* Adjusted from previous larger sizes */
-  height: 400px;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
 .contact-layout .profile-icon:hover {
-  transform: scale(1.1); /* Adds a little pop when hovered */
+  transform: scale(1.1);
 }
 
-/* Adjusts the text size inside these smaller cards */
 .contact-layout h3 {
   font-size: 0.9rem;
   margin-bottom: 10px;
 }
+
 /* Container forces horizontal alignment */
 .social-container {
   display: flex;
-  justify-content: center; /* Centers them on the screen */
+  justify-content: center;
   align-items: center;
-  gap: 400px;              /* Space between the two icons */
+  gap: 100px;
   margin-top: 20px;
   padding: 10px;
+  width: 100%;
 }
 
 /* Individual items */
 .social-item {
   text-align: center;
-  flex: 0 1 auto;        /* Prevents items from stretching too much */
+  flex: 0 1 auto;
 }
 
 .social-item h3 {
-  font-size: 0.7rem;     /* Makes the "GITHUB" text smaller */
+  font-size: 0.7rem;
   letter-spacing: 1px;
   margin-bottom: 8px;
   color: #fff;
@@ -500,35 +512,38 @@ nav a.active::after { display: none; }
 
 /* Sizing the icons */
 .social-icon {
-  width: 200px;           /* Adjust this to make them "a little smaller" */
-  height: 200px;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
   object-fit: contain;
   transition: transform 0.2s;
 }
 
 .social-icon:hover {
-  transform: scale(1.1); /* Adds that bouncy comic feel */
+  transform: scale(1.1);
 }
 
-/* Mobile Tweak: Ensure they STAY side-by-side even on small phones */
-@media (max-width: 480px) {
-  .social-icon {
-    width: 45px;         /* Slightly smaller on mobile to prevent squashing */
-    height: 45px;
-  }
-  .social-container {
-    gap: 15px;
-  }
+.modal-content {
+  border: 4px solid var(--accent); 
+  box-shadow: 10px 10px 0px var(--border); 
+  border-radius: 0; 
 }
-/* Container that creates the "Floating" effect */
+
+.modal-backdrop.show {
+  opacity: 0.8;
+  background-color: #0d0b1a; 
+}
+
 .form-wrapper-comic {
   position: relative;
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  background: var(--accent); /* This creates a lime green outline effect */
+  background: var(--accent);
   padding: 4px;
   border: 4px solid var(--border);
-  box-shadow: 15px 15px 0px var(--ink); /* Deep black shadow */
+  box-shadow: 15px 15px 0px var(--ink);
+  box-sizing: border-box;
 }
 
 .contact-form-card {
@@ -538,7 +553,6 @@ nav a.active::after { display: none; }
   padding: 20px !important;
 }
 
-/* Fun Label Styling */
 .form-label-comic {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
@@ -549,7 +563,6 @@ nav a.active::after { display: none; }
   margin-bottom: 5px;
 }
 
-/* The Button that really stands out */
 .send-btn-comic {
   background: var(--accent);
   color: var(--ink);
@@ -566,7 +579,7 @@ nav a.active::after { display: none; }
 
 .send-btn-comic:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 10px 10px 0px var(--border);
+  box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.274);
 }
 
 .send-btn-comic:active {
@@ -574,48 +587,118 @@ nav a.active::after { display: none; }
   box-shadow: 0px 0px 0px var(--border);
 }
 
-/* Custom Input Focus with Lime Glow */
+.custom-input {
+  background: rgba(255, 255, 255, 0.103) !important;
+  border: 3px solid var(--border) !important;
+  border-radius: 0 !important;
+  color: #fff !important;
+  font-family: 'Syne', sans-serif;
+  padding: 12px !important;
+}
+
 .custom-input:focus {
   border-color: var(--accent) !important;
-  background: rgba(200, 240, 74, 0.05) !important;
-  box-shadow: none !important;
+  box-shadow: 4px 4px 0px var(--accent) !important;
+  outline: none;
 }
-/* =====================
-   MOBILE BREAKPOINTS
-===================== */
+
+.custom-input::placeholder {
+  color: #9a9a95;
+  font-family: 'Syne', sans-serif;
+}
+
+.swal2-html-container {
+  font-family: 'Syne', sans-serif !important;
+}
+
+/* --- Base Theme --- */
+.custom-nav {
+  background: var(--ink) !important;
+  border-bottom: 3px solid var(--border);
+  --bs-navbar-active-color: var(--ink);
+  --bs-navbar-color: #ffffff;
+}
+
+#portfolioNavbar .navbar-nav .nav-link, 
+.custom-nav .navbar-nav .nav-link {
+  color: #ffffff !important;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 18px 25px !important;
+  opacity: 1 !important; 
+}
+
+#portfolioNavbar .nav-link.active,
+.custom-nav .nav-link.active {
+  color: var(--ink) !important;
+  background: var(--accent) !important;
+}/* Active transition target for the scroll-reveal element */
+.form-wrapper-comic.active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.custom-nav .navbar-brand {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  color: var(--accent) !important; /* Overrides default Bootstrap color tokens */
+}
+
+.custom-nav .nav-link {
+  color: var(--accent) !important; /* Globally links color properties to your color token variable */
+  transition: opacity 0.2s ease-in-out;
+}
+
+.custom-nav .nav-link:hover {
+  opacity: 0.8;
+}
+
+.custom-nav .nav-link.active {
+  color: #ffffff !important; /* Sets the color accent state when the user is viewing this active layout page */
+  opacity: 1;
+}
+.cert-badge .badge-img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+/* =======================================
+   RESPONSIVE LAYOUT BREAKPOINTS (CLEANED)
+======================================= */
 @media (max-width: 760px) {
   .profile-header {
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
+    flex-direction: column;
     justify-items: center;
   }
 
-  .profile-sidebar,
-  .info-column,
-  .right-column {
+  .profile-sidebar {
     align-items: center;
     width: 100%;
-    max-width: 560px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 12px 16px;
   }
 
   .photo-box {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
   }
 
-  .name-pill,
-  .other-pill,
-  .contact-card,
-  .intro-box {
+  .name-pill {
     width: 100%;
     max-width: 100%;
   }
 
-  .name-pill h1 { font-size: 2rem; }
-  .page { padding: 32px 24px; }
+  .name-pill h1 { font-size: 1.5rem; }
+  .page { padding: 32px 16px; }
   .about-grid { grid-template-columns: 1fr; }
+  
+  .contact-layout {
+    grid-template-columns: 1fr; /* Stack layout options sequentially on mobile */
+    justify-items: center;
+  }
 }
 
 @media (max-width: 600px) {
@@ -629,160 +712,131 @@ nav a.active::after { display: none; }
   }
 
   body {
-    padding-top: 100px; 
+    padding-top: 110px; 
   }
-  .page { padding: 24px 16px; }
 
   nav a {
     flex: 1 1 50%; 
-    padding: 12px 4px;
+    padding: 10px 4px !important;
     font-size: 0.75rem; 
     letter-spacing: 0.05em;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    white-space: nowrap; /* Prevents "Tech Stack" from breaking into two lines */
+    white-space: nowrap;
   }
 
-  /* Adjust the active indicator for the grid layout */
   nav a::after {
     bottom: 0;
   }
-}
 
-  .stack-grid {
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    gap: 10px;
-    margin-bottom: 24px;
-    padding: 12px 16px;
-  }
-
-  .stack-item {
-    padding: 14px 8px;
-    font-size: 0.72rem;
-  }
-
-  .stack-icon { font-size: 1.4rem; }
-
-  .cert-card {
-    padding: 14px 16px;
-    gap: 12px;
-  }
-
-  .cert-badge {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-
-  .cert-info h3 { font-size: 0.88rem; }
-  .cert-info p { font-size: 0.78rem; }
-
-  .section-title { font-size: 0.9rem; margin-bottom: 16px; }
-
-  .about-grid { grid-template-columns: 1fr; }
-
-  .highlight-grid {
-    padding: 24px 20px;
-  }
-
-  .about-card {
-    padding: 18px 16px;
-  }
-
-
-@media (max-width: 540px) {
-  .profile-header {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-
-  .profile-sidebar,
-  .info-column,
-  .right-column {
-    align-items: center;
-    width: 100%;
-    max-width: 520px;
-    margin: 0 auto;
-  }
-
-  .photo-box {
-    width: 150px;
-    height: 150px;
-  }
-
-  .name-pill,
-  .other-pill,
-  .contact-card,
-  .intro-box {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .name-pill { padding: 14px 18px; }
-  .name-pill h1 { font-size: 1.9rem; }
-  .other-pill { padding: 12px 14px; }
-  .contact-card { padding: 14px 16px; }
-  .contact-row { font-size: 0.82rem; word-break: break-all; }
-  .intro-box { padding: 14px 16px; }
-
-  @media (max-width: 600px) {
+  /* SVG Animation Scalers */
   .batman-group {
     transform-origin: 210px 220px;
-    transform: scale(0.55) translate(-140px, 60px);
+    transform: scale(0.45) translate(-180px, 90px);
   }
   .joker-group {
     transform-origin: 410px 220px;
-    transform: scale(0.55) translate(60px, 60px);
+    transform: scale(0.45) translate(40px, 90px);
   }
   .pow-group {
     transform-origin: 310px 185px;
-    transform: scale(0.55) translate(-40px, 60px);
+    transform: scale(0.45) translate(-60px, 90px);
   }
   .motion-lines {
-    transform: scale(0.55) translate(-140px, 60px);
+    transform: scale(0.45) translate(-180px, 90px);
+  }
+  .social-container {
+    gap: 20px;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .social-icon {
+    max-width: 120px;
   }
 }
-.swal2-html-container {
-  font-family: 'Syne', sans-serif !important;
-}
-/* --- Base Theme --- */
-.custom-nav {
-  background: var(--ink) !important;
-  border-bottom: 3px solid var(--border);
-  --bs-navbar-active-color: var(--ink);
-    --bs-navbar-color: #ffffff;
-}
 
-#portfolioNavbar .navbar-nav .nav-link, 
-.custom-nav .navbar-nav .nav-link {
-    color: #ffffff !important;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
+/* =======================================
+   CRITICAL 320px x 800px ULTRA-MOBILE FOCUS
+======================================= */
+@media (max-width: 360px) {
+  body {
+    padding-top: 105px;
+  }
+  
+  .page {
+    padding: 20px 12px;
+  }
+
+  .section-title {
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+  }
+
+  nav a {
+    font-size: 0.7rem;
+    padding: 8px 2px !important;
+  }
+
+  .name-pill h1 {
+    font-size: 1.15rem;
+  }
+
+  .stack-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .stack-item {
+    padding: 10px 4px;
+    font-size: 0.68rem;
+  }
+
+  .social-container {
+    gap: 15px;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .social-icon {
+    max-width: 95px;
+  }
+
+  .cert-card:link, .cert-card:visited, .cert-card {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .cert-badge {
+    width: 45px;
+    height: 45px;
+    margin-right: 5px;
+  }
+
+  .cert-info h3 {
     font-size: 0.8rem;
-    text-transform: uppercase;
-    padding: 18px 25px !important;
-    opacity: 1 !important; /* Ensures no transparency is dulling the white */
+  }
+
+  .cert-info p {
+    font-size: 0.7rem;
+  }
+  
+  .form-wrapper-comic {
+    box-shadow: 8px 8px 0px var(--ink);
+  }
+  
+  .contact-form-card {
+    padding: 12px !important;
+  }
 }
 
-/* Keep the active state dark for readability against the lime green */
-#portfolioNavbar .nav-link.active {
-    color: var(--ink) !important;
-    background: var(--accent) !important;
-}
-
-.custom-nav .nav-link.active {
-  background: var(--accent) !important;
-  color: var(--ink) !important;
-}
-
-/* --- Mobile Specific Styles --- */
+/* --- Bootstrap Toggler Fixes --- */
 @media (max-width: 767px) {
   .navbar-toggler {
     border: 3px solid var(--accent);
     border-radius: 0;
     padding: 5px;
+    margin: 5px;
   }
 
-  /* Colors the hamburger lines to your accent color */
   .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28200, 240, 74, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
@@ -791,62 +845,12 @@ nav a.active::after { display: none; }
     background: var(--ink);
     border: 3px solid var(--border);
     margin-top: 10px;
-    box-shadow: 6px 6px 0px var(--accent); /* Adds a comic-style pop */
+    box-shadow: 6px 6px 0px var(--accent);
   }
 
-  .custom-nav .nav-link {
+  .custom-nav .navbar-nav .nav-link {
     text-align: left;
-    padding: 15px !important;
+    padding: 12px !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
-}
-/* Forces the grid into two columns even on smaller screens */
-.contact-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Side-by-side */
-  gap: 15px;
-  max-width: 500px; /* Keeps the whole section from getting too wide */
-  margin: 0 auto;   /* Centers the grid on the page */
-}
-
-/* Reduces the size of the contact cards and icons */
-.contact-layout .about-card {
-  padding: 15px; /* Smaller internal spacing */
-}
-
-.contact-layout .profile-icon {
-  width: 200px;  /* Adjusted from previous larger sizes */
-  height: 200px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.contact-layout .profile-icon:hover {
-  transform: scale(1.1); /* Adds a little pop when hovered */
-}
-
-/* Adjusts the text size inside these smaller cards */
-.contact-layout h3 {
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-}
-.custom-input {
-  background: var(--ink) !important;
-  border: 3px solid var(--border) !important;
-  border-radius: 0 !important;
-  color: #fff !important;
-  font-family: 'DM Sans', sans-serif;
-  padding: 12px !important;
-}
-
-.custom-input:focus {
-  border-color: var(--accent) !important;
-  box-shadow: 4px 4px 0px var(--accent) !important;
-  outline: none;
-}
-
-.custom-input::placeholder {
-  color: #9a9a95;
-}
-
 }

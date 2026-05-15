@@ -34,10 +34,6 @@ const techInfo = {
     "VS Code": {
       icon: "💻",
       description: "A lightweight but powerful source code editor by Microsoft. VS Code supports dozens of languages with extensions, debugging, Git integration, and a rich ecosystem."
-    },
-    "Netbeans": {
-      icon: "🧰",
-      description: "An open-source integrated development environment (IDE) primarily used for Java development. NetBeans offers tools for coding, debugging, and project management."
     }
   };
   
@@ -87,7 +83,6 @@ document.querySelectorAll('.stack-item').forEach(item => {
   });
 });
  
-// Entrance animation
 anime({
   targets: '.stack-item',
   translateY: [50, 0],
@@ -97,10 +92,72 @@ anime({
   duration: 800,
   easing: 'easeOutBack'
 });
- 
-// Spider animation
-const spiderEl = document.querySelector('.spider-swing');
-if (spiderEl) {
-  spiderEl.addEventListener('mouseenter', () => spiderEl.style.animationPlayState = 'paused');
-  spiderEl.addEventListener('mouseleave', () => spiderEl.style.animationPlayState = 'running');
+ // 1. Initialize EmailJS with Public Key
+(function() {
+  emailjs.init("4OhWlBQqcawJHwPXC");
+})();
+
+document.addEventListener("DOMContentLoaded", function() {
+  
+  if (document.querySelector('.social-item')) {
+    anime({
+      targets: '.social-item', 
+      translateY: [50, 0],
+      opacity: [0, 1],
+      delay: anime.stagger(630), 
+      easing: 'easeOutElastic(1, .8)', 
+      duration: 1000
+    });
+  }
+
+  const observerOptions = {
+    threshold: 0.15 
+  };
+
+  const formObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        // Stop tracking once animated into view
+        formObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const targetForm = document.querySelector(".form-wrapper-comic");
+  if (targetForm) {
+    // Inject the initial opacity and baseline shifting classes directly via JS 
+    // to preserve layout functionality even if scripts fail to load.
+    targetForm.style.opacity = "0";
+    targetForm.style.transform = "translateY(40px)";
+    targetForm.style.transition = "opacity 0.8s cubic-bezier(0.2, 0.6, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.6, 0.2, 1)";
+    
+    formObserver.observe(targetForm);
+  }
+});
+
+// 3. EmailJS Form Submit Handler
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const status = document.getElementById('form-status');
+    status.innerText = "SENDING...";
+    status.style.color = "var(--accent)";
+    status.style.fontFamily = "Syne, sans-serif";
+
+    emailjs.sendForm('service_pco7oze', 'template_yus04gt', this)
+      .then(function() {
+        status.innerText = "MESSAGE SENT SUCCESSFULLY! THANK YOU FOR REACHING OUT.";
+        status.style.color = "#00ff00";
+        status.style.fontFamily = "Syne, sans-serif";
+        contactForm.reset();
+      }, function(error) {
+        status.innerText = "FAILED TO SEND. PLEASE TRY AGAIN.";
+        status.style.color = "#ff0000";
+        status.style.fontFamily = "Syne, sans-serif";
+        console.log('FAILED...', error);
+      });
+  });
 }
