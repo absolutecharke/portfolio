@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Charles Pineda | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -34,12 +35,23 @@
         42%,58%  { opacity:0.5; }
         70%,100% { opacity:0; }
       }
-      .batman-group { animation: batmanPunch 2.8s ease-in-out infinite; transform-origin: 210px 220px; }
-      .joker-group  { animation: jokerFly 2.8s ease-in-out infinite; transform-origin: 410px 220px; }
-      .pow-group    { animation: powFlash 2.8s ease-in-out infinite; transform-origin: 310px 185px; }
-      .motion-lines { animation: motionLines 2.8s ease-in-out infinite; }
-    </style>
+      .batman-group { 
+  animation: batmanPunch 8s ease-in-out infinite; 
+  transform-origin: 210px 220px; 
+}
 
+.joker-group { 
+  animation: jokerFly 8s ease-in-out infinite; 
+  transform-origin: 410px 220px; 
+}
+.pow-group { 
+  animation: powFlash 8s ease-in-out infinite; 
+  transform-origin: 310px 185px; 
+}
+.motion-lines { 
+  animation: motionLines 8s ease-in-out infinite; 
+}
+    </style>
     <rect width="680" height="340" fill="#0d0b1a"/>
     <rect x="40" y="18" width="3" height="3" fill="#fff" opacity="0.6"/>
     <rect x="130" y="10" width="3" height="3" fill="#fff" opacity="0.4"/>
@@ -127,13 +139,25 @@
   </svg>
 </div>
 
-  <nav role="navigation">
-    <a href="#" class="active">Name</a>
-    <a href="about.html">About</a>
-    <a href="techstack.html">Tech Stack</a>
-    <a href="certification.html">Certifications</a>
-  </nav>
+ <nav class="navbar navbar-expand-md fixed-top custom-nav">
+  <div class="container-fluid px-3">
+    <a class="navbar-brand d-md-none" href="#" style="font-family: 'Syne'; font-weight: 800; color: var(--accent);">My Portfolio</a>
 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNavbar" aria-controls="portfolioNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="portfolioNavbar">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link active" href="index.html";>Home</a>
+        <a class="nav-link" href="about.html" style="color: var(--accent);">About</a>
+        <a class="nav-link" href="techstack.html"style="color: var(--accent);">Tech Stack</a>
+        <a class="nav-link" href="certification.html"style="color: var(--accent);">Certifications</a>
+        <a class="nav-link" href="contact.html"style="color: var(--accent);">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
   <div class="page active">
     <div class="profile-header">
       <div class="profile-sidebar">
@@ -151,15 +175,6 @@
           <p>BSIT Undergraduate · Bacoor, Cavite, PH</p>
         </div>
 
-        <div class="contact-card">
-          <div class="contact-row">
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#1a1a18" stroke-width="2">
-              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
-            </svg>
-            <span>charlesgabrielle.pineda@sdca.edu.ph</span>
-          </div>
-        </div>
-
         <div class="intro-box">
           <h2>Short Intro</h2>
           <p>
@@ -171,7 +186,7 @@
     </div>
 
   </div>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 

@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tech Stack | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="style.css" />
   <!-- Anime.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <!-- SweetAlert2 CDN -->
@@ -17,8 +17,8 @@
   <svg width="100%" height="100%" viewBox="0 0 680 340"
   preserveAspectRatio="none"
   xmlns="http://www.w3.org/2000/svg">
-    <style>
-      @keyframes batmanPunch {
+  <style>
+    @keyframes batmanPunch {
         0%,100%  { transform: translateX(0px); }
         40%      { transform: translateX(28px); }
         60%      { transform: translateX(28px); }
@@ -39,11 +39,23 @@
         42%,58%  { opacity:0.5; }
         70%,100% { opacity:0; }
       }
-      .batman-group { animation: batmanPunch 2.8s ease-in-out infinite; transform-origin: 210px 220px; }
-      .joker-group  { animation: jokerFly 2.8s ease-in-out infinite; transform-origin: 410px 220px; }
-      .pow-group    { animation: powFlash 2.8s ease-in-out infinite; transform-origin: 310px 185px; }
-      .motion-lines { animation: motionLines 2.8s ease-in-out infinite; }
-    </style>
+      .batman-group { 
+  animation: batmanPunch 8s ease-in-out infinite; 
+  transform-origin: 210px 220px; 
+}
+
+.joker-group { 
+  animation: jokerFly 8s ease-in-out infinite; 
+  transform-origin: 410px 220px; 
+}
+.pow-group { 
+  animation: powFlash 8s ease-in-out infinite; 
+  transform-origin: 310px 185px; 
+}
+.motion-lines { 
+  animation: motionLines 8s ease-in-out infinite; 
+}
+  </style>
 
     <rect width="680" height="340" fill="#0d0b1a"/>
     <rect x="40" y="18" width="3" height="3" fill="#fff" opacity="0.6"/>
@@ -132,12 +144,25 @@
   </svg>
 </div>
 
-  <nav role="navigation">
-    <a href="index.html">Name</a>
-    <a href="about.html">About</a>
-    <a href="techstack.html" class="active">Tech Stack</a>
-    <a href="certification.html">Certifications</a>
-  </nav>
+  <nav class="navbar navbar-expand-md fixed-top custom-nav">
+  <div class="container-fluid px-3">
+    <a class="navbar-brand d-md-none" href="#" style="font-family: 'Syne'; font-weight: 800; color: var(--accent);">My Portfolio</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNavbar" aria-controls="portfolioNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="portfolioNavbar">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="index.html" style="color: var(--accent);">Home</a>
+        <a class="nav-link" href="about.html" style="color: var(--accent);">About</a>
+        <a class="nav-link active" href="techstack.html">Tech Stack</a>
+        <a class="nav-link" href="certification.html" style="color: var(--accent);">Certifications</a>
+        <a class="nav-link" href="contact.html" style="color: var(--accent);">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
 
   <div class="page active">
     <div class="section-title">Languages & Frameworks</div>
@@ -158,34 +183,6 @@
       <div class="stack-item" data-tech="Netbeans"><div class="stack-icon"><img src="netbeans.png" alt="Netbeans icon"></div>Netbeans</div>
     </div>
   </div>
-
-  <style>
-    .swal-title {
-      font-family: 'Syne', sans-serif !important;
-      font-weight: 800 !important;
-      font-size: 1.4rem !important;
-      letter-spacing: 0.05em;
-      color: black;
-    }
-    .swal-btn {
-      font-family: 'Syne', sans-serif !important;
-      font-weight: 700 !important;
-      color: #1a1a18 !important;
-      border: 2px solid #1a1a18 !important;
-      border-radius: 0 !important;
-      box-shadow: 3px 3px 0 #1a1a18 !important;
-      transition: transform 0.15s, box-shadow 0.15s !important;
-    }
-    .swal-btn:hover {
-      transform: translate(-2px, -2px) !important;
-      box-shadow: 5px 5px 0 #1a1a18 !important;
-    }
-    .swal2-popup {
-      border: 3px solid #1a1a18 !important;
-      border-radius: 0 !important;
-      box-shadow: 7px 7px 0 #1a1a18 !important;
-    }
-  </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 

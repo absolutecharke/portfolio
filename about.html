@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <div class="comic-bg" aria-hidden="true">
@@ -35,10 +35,22 @@
         42%,58%  { opacity:0.5; }
         70%,100% { opacity:0; }
       }
-      .batman-group { animation: batmanPunch 2.8s ease-in-out infinite; transform-origin: 210px 220px; }
-      .joker-group  { animation: jokerFly 2.8s ease-in-out infinite; transform-origin: 410px 220px; }
-      .pow-group    { animation: powFlash 2.8s ease-in-out infinite; transform-origin: 310px 185px; }
-      .motion-lines { animation: motionLines 2.8s ease-in-out infinite; }
+      .batman-group { 
+  animation: batmanPunch 8s ease-in-out infinite; 
+  transform-origin: 210px 220px; 
+}
+
+.joker-group { 
+  animation: jokerFly 8s ease-in-out infinite; 
+  transform-origin: 410px 220px; 
+}
+.pow-group { 
+  animation: powFlash 8s ease-in-out infinite; 
+  transform-origin: 310px 185px; 
+}
+.motion-lines { 
+  animation: motionLines 8s ease-in-out infinite; 
+}
     </style>
 
     <rect width="680" height="340" fill="#0d0b1a"/>
@@ -127,78 +139,54 @@
     </g>
   </svg>
 </div>
-  <nav role="navigation">
-    <a href="index.html">Name</a>
-    <a href="about.html" class="active">About</a>
-    <a href="techstack.html">Tech Stack</a>
-    <a href="certification.html">Certifications</a>
-  </nav>
+  <nav class="navbar navbar-expand-md fixed-top custom-nav">
+  <div class="container-fluid px-3">
+    <a class="navbar-brand d-md-none" href="#" style="font-family: 'Syne'; font-weight: 800; color: var(--accent);">My Portfolio</a>
 
-  <!-- Spider-Man swinging across page - inline SVG -->
-  
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNavbar" aria-controls="portfolioNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="portfolioNavbar">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="index.html"style="color: var(--accent);";>Home</a>
+        <a class="nav-link active" href="about.html" >About</a>
+        <a class="nav-link" href="techstack.html"style="color: var(--accent);">Tech Stack</a>
+        <a class="nav-link" href="certification.html"style="color: var(--accent);">Certifications</a>
+        <a class="nav-link" href="contact.html"style="color: var(--accent);">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
   <div class="page active">
   <div class="section-title">About me</div>
 
-  <div class="accordion" id="aboutAccordion">
-
-    <!-- First block -->
-    <div class="accordion-item" style="border: 3px solid var(--border); box-shadow: 4px 4px 0 var(--border); margin-bottom: 12px; border-radius: 0;">
-      <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#aboutOne" aria-expanded="true" aria-controls="aboutOne"
-          style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent); color: var(--ink); border-radius: 0;">
-          Who I Am
-        </button>
-      </h2>
-      <div id="aboutOne" class="accordion-collapse collapse show" data-bs-parent="#aboutAccordion">
-        <div class="accordion-body" style="font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; line-height: 1.75; color: #2a2a26; background: var(--card-bg);">
-          "I'm Charles Pineda, an IT student passionate about building a future in the IT industry. I specialize in surface-level database coding and enjoy creating projects that are both fun and engaging. Outside of technology, I spend my time reading comics, collecting action figures, playing instruments, running, and staying active at the gym, which helps me stay creative, disciplined, and motivated."
-        </div>
-      </div>
-    </div>
-
-    <!-- Second block -->
-    <div class="accordion-item" style="border: 3px solid var(--border); box-shadow: 4px 4px 0 var(--border); margin-bottom: 12px; border-radius: 0;">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aboutTwo" aria-expanded="false" aria-controls="aboutTwo"
-          style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--accent); color: var(--ink); border-radius: 0;">
-          My Aspirations
-        </button>
-      </h2>
-      <div id="aboutTwo" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
-        <div class="accordion-body" style="font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; line-height: 1.75; color: #2a2a26; background: var(--card-bg);">
-          "I aspire to have a position in IT department professions I want to professionalize in like cyber security, database management, game development, and such. I love collaborating on new ideas and turning concepts into interactive experiences. My focus is on learning by doing, improving my skills with every project, and sharing my enthusiasm for technology through creative work."
-        </div>
-      </div>
-    </div>
-
+  <div class="highlight-grid">
+    
+      <h3>Who I am</h3>
+    <p>
+      "I'm Charles Pineda, an IT student passionate about building a future in the IT industry. 
+      I specialize in surface-level database coding and enjoy creating projects that are both 
+      fun and engaging. Outside of technology, I spend my time reading comics, collecting 
+      action figures, playing instruments, running, and staying active at the gym, which 
+      helps me stay creative, disciplined, and motivated."
+    </p>
   </div>
 
-    <div class="section-title">Contacts</div>
-
-    <div class="about-grid">
-      <div class="about-card">
-        <h3>Github Profile</h3>
-        <a href="https://github.com/absolutecharke" target="_blank" rel="noopener noreferrer">
-          <img src="github-white-icon.webp" alt="GitHub icon" class="profile-icon">
-        </a>
-      </div>
-      
-      <div class="about-card">
-        <h3>LinkedIn Profile</h3>
-        <a href="https://www.linkedin.com/in/charlespineda2/" target="_blank" rel="noopener noreferrer">
-          <img src="LinkedIn.png" alt="LinkedIn icon" class="profile-icon">
-        </a>
-      </div>
+  <div class="highlight-grid">
+    <div class="highlight-card">
+      <h3>My Aspirations</h3>
+      <p>
+        "I aspire to have a position in IT department professions I want to professionalize in 
+        like cyber security, database management, game development, and such. I love collaborating 
+        on new ideas and turning concepts into interactive experiences. My focus is on learning 
+        by doing, improving my skills with every project, and sharing my enthusiasm for 
+        technology through creative work."
+      </p>
     </div>
+  </div>
+</div>
 
-  <script>
-    // Pause swing animation on hover for interactivity
-    const spiderEl = document.querySelector('.spider-swing');
-    if (spiderEl) {
-      spiderEl.addEventListener('mouseenter', () => spiderEl.style.animationPlayState = 'paused');
-      spiderEl.addEventListener('mouseleave', () => spiderEl.style.animationPlayState = 'running');
-    }
-  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

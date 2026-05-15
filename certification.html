@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Certifications | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -34,12 +35,23 @@
         42%,58%  { opacity:0.5; }
         70%,100% { opacity:0; }
       }
-      .batman-group { animation: batmanPunch 2.8s ease-in-out infinite; transform-origin: 210px 220px; }
-      .joker-group  { animation: jokerFly 2.8s ease-in-out infinite; transform-origin: 410px 220px; }
-      .pow-group    { animation: powFlash 2.8s ease-in-out infinite; transform-origin: 310px 185px; }
-      .motion-lines { animation: motionLines 2.8s ease-in-out infinite; }
-    </style>
+      .batman-group { 
+  animation: batmanPunch 8s ease-in-out infinite; 
+  transform-origin: 210px 220px; 
+}
 
+.joker-group { 
+  animation: jokerFly 8s ease-in-out infinite; 
+  transform-origin: 410px 220px; 
+}
+.pow-group { 
+  animation: powFlash 8s ease-in-out infinite; 
+  transform-origin: 310px 185px; 
+}
+.motion-lines { 
+  animation: motionLines 8s ease-in-out infinite; 
+}
+    </style>
     <rect width="680" height="340" fill="#0d0b1a"/>
     <rect x="40" y="18" width="3" height="3" fill="#fff" opacity="0.6"/>
     <rect x="130" y="10" width="3" height="3" fill="#fff" opacity="0.4"/>
@@ -126,12 +138,25 @@
     </g>
   </svg>
 </div>
-  <nav role="navigation">
-    <a href="index.html">Name</a>
-    <a href="about.html">About</a>
-    <a href="techstack.html">Tech Stack</a>
-    <a href="certification.html" class="active">Certifications</a>
-  </nav>
+  <nav class="navbar navbar-expand-md fixed-top custom-nav">
+  <div class="container-fluid px-3">
+    <a class="navbar-brand d-md-none" href="#" style="font-family: 'Syne'; font-weight: 800; color: var(--accent);">My Portfolio</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNavbar" aria-controls="portfolioNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="portfolioNavbar">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="index.html"style="color: var(--accent);">Home</a>
+        <a class="nav-link" href="about.html" style="color: var(--accent);">About</a>
+        <a class="nav-link" href="techstack.html" style="color: var(--accent);">Tech Stack</a>
+        <a class="nav-link active" href="certification.html">Certifications</a>
+        <a class="nav-link" href="contact.html" style="color: var(--accent);">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
 
   
 
@@ -181,23 +206,7 @@
     </div>
 
   </div>
-
-  <script>
-    // Pause swing animation on hover for interactivity
-    const spiderEl = document.querySelector('.spider-swing');
-    if (spiderEl) {
-      spiderEl.addEventListener('mouseenter', () => spiderEl.style.animationPlayState = 'paused');
-      spiderEl.addEventListener('mouseleave', () => spiderEl.style.animationPlayState = 'running');
-    }
-  </script>
-<script>
-    // Pause swing animation on hover for interactivity
-    const BatmanGlide = document.querySelector('.batman-glide');
-    if (BatmanGlide) {
-      BatmanGlide.addEventListener('mouseenter', () => BatmanGlide.style.animationPlayState = 'paused');
-      BatmanGlide.addEventListener('mouseleave', () => BatmanGlide.style.animationPlayState = 'running');
-    }
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 

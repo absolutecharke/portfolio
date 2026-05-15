@@ -140,47 +140,67 @@ nav a.active::after { display: none; }
 .stack-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 14px;
-  margin-bottom: 32px;
+  gap: 20px;
+  margin-top: 20px;
 }
-
 .stack-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  border: 3px solid var(--border);
   background: var(--card-bg);
-  box-shadow: 4px 4px 0 var(--border);
-  padding: 16px 12px;
+  border: 3px solid var(--border);
+  padding: 15px;
   text-align: center;
   font-family: 'Syne', sans-serif;
   font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 5px 5px 0 var(--border);
+  transition: transform 0.2s;
+  cursor: pointer;
 }
 
 .stack-item:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--border);
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--border);
 }
 
 .stack-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 90px;
-  width: 70px;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 10px;
 }
-
 .stack-icon img {
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
+.swal2-popup {
+  border: 3px solid #1a1a18 !important;
+  border-radius: 0 !important;
+  box-shadow: 7px 7px 0 #1a1a18 !important;
+}
+
+.swal-title {
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 1.4rem !important;
+  letter-spacing: 0.05em;
+  color: #000;
+}
+
+.swal-btn {
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 700 !important;
+  color: #1a1a18 !important;
+  border: 2px solid #1a1a18 !important;
+  border-radius: 0 !important;
+  box-shadow: 3px 3px 0 #1a1a18 !important;
+  padding: 10px 20px !important;
+  background: #fff !important;
+  transition: transform 0.15s, box-shadow 0.15s !important;
+}
+
+.swal-btn:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 5px 5px 0 #1a1a18 !important;
+}
 /* PROFILE HEADER */
 .profile-header {
   display: flex;
@@ -304,9 +324,24 @@ nav a.active::after { display: none; }
 }
 
 /* CERTS */
-.cert-list { display: flex; flex-direction: column; gap: 16px; }
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
 
-.cert-card,
+.cert-card {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  border: 3px solid var(--border);
+  padding: 15px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 6px 6px 0 var(--border);
+  transition: 0.2s;
+}
 .cert-card:link,
 .cert-card:visited {
   border: 3px solid var(--border);
@@ -321,26 +356,31 @@ nav a.active::after { display: none; }
   text-decoration: none;
 }
 
-.cert-card:hover { transform: translate(-2px, -2px); }
+.cert-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(black);
+  color: inherit;
+}
 
 .cert-badge {
-  width: 48px; height: 48px;
-  background: var(--accent);
-  border: 2px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem;
+  width: 80px;
+  height: 80px;
   flex-shrink: 0;
-  background-color: white;
+  margin-right: 20px;
+  padding: 4px;
 }
-
 .cert-info h3 {
   font-family: 'Syne', sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
-  margin-bottom: 3px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 0;
 }
 
-.cert-info p { font-size: 0.82rem; color: var(--muted); font-family: 'Syne', sans-serif;}
+.cert-info p {
+  margin: 5px 0 0;
+  font-family: 'Syne', sans-serif;
+  opacity: 0.8;
+}
 
 /* ABOUT GRID */
 .about-grid {
@@ -398,72 +438,148 @@ nav a.active::after { display: none; }
   font-size: 1.1rem;
   line-height: 1.6;
 }
-
-[contenteditable]:focus { outline: 3px dashed var(--accent2); outline-offset: 2px; }
-
-/* Spider-Man swinging across page */
-.spider-swing {
-  animation: swingAcross 12s linear infinite;
+.highlight-grid h3{
+  font-family: 'Syne', sans-serif;
+  font-weight: 900;
+  font-size: 1.7rem;
+  line-height: 1.6;
+}
+/* Forces the grid into two columns even on smaller screens */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Side-by-side */
+  gap: 15px;
+  max-width: 500px; /* Keeps the whole section from getting too wide */
+  margin: 0 auto;   /* Centers the grid on the page */
 }
 
-@keyframes swingAcross {
-  0%   { left: -350px; top: 10%; transform: rotate(-10deg) scaleX(1); }
-  25%  { left: 20%;    top: 15%; transform: rotate(5deg) scaleX(1); }
-  50%  { left: 50%;    top: 25%; transform: rotate(0deg) scaleX(1.1); }
-  75%  { left: 80%;    top: 18%; transform: rotate(-5deg) scaleX(1); }
-  100% { left: 110%;   top: 10%; transform: rotate(-10deg) scaleX(1); }
+/* Reduces the size of the contact cards and icons */
+.contact-layout .about-card {
+  padding: 15px; /* Smaller internal spacing */
 }
 
-/* Batman gliding */
-.batman-glide {
-  animation: batmanGlide 7s linear infinite;
+.contact-layout .profile-icon {
+  width: 400px;  /* Adjusted from previous larger sizes */
+  height: 400px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
-@keyframes batmanGlide {
-  0%   { right: -350px; top: 10%; transform: rotate(-10deg) scaleX(-1); }
-  25%  { right: 20%;    top: 15%; transform: rotate(5deg) scaleX(-1); }
-  50%  { right: 50%;    top: 25%; transform: rotate(0deg) scaleX(-1.1); }
-  75%  { right: 80%;    top: 18%; transform: rotate(-5deg) scaleX(-1); }
-  100% { right: 110%;   top: 10%; transform: rotate(-10deg) scaleX(-1); }
+.contact-layout .profile-icon:hover {
+  transform: scale(1.1); /* Adds a little pop when hovered */
 }
 
-/* =====================
-   ACCORDION
-===================== */
-.accordion-button {
+/* Adjusts the text size inside these smaller cards */
+.contact-layout h3 {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+/* Container forces horizontal alignment */
+.social-container {
+  display: flex;
+  justify-content: center; /* Centers them on the screen */
+  align-items: center;
+  gap: 400px;              /* Space between the two icons */
+  margin-top: 20px;
+  padding: 10px;
+}
+
+/* Individual items */
+.social-item {
+  text-align: center;
+  flex: 0 1 auto;        /* Prevents items from stretching too much */
+}
+
+.social-item h3 {
+  font-size: 0.7rem;     /* Makes the "GITHUB" text smaller */
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+}
+
+/* Sizing the icons */
+.social-icon {
+  width: 200px;           /* Adjust this to make them "a little smaller" */
+  height: 200px;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.social-icon:hover {
+  transform: scale(1.1); /* Adds that bouncy comic feel */
+}
+
+/* Mobile Tweak: Ensure they STAY side-by-side even on small phones */
+@media (max-width: 480px) {
+  .social-icon {
+    width: 45px;         /* Slightly smaller on mobile to prevent squashing */
+    height: 45px;
+  }
+  .social-container {
+    gap: 15px;
+  }
+}
+/* Container that creates the "Floating" effect */
+.form-wrapper-comic {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--accent); /* This creates a lime green outline effect */
+  padding: 4px;
+  border: 4px solid var(--border);
+  box-shadow: 15px 15px 0px var(--ink); /* Deep black shadow */
+}
+
+.contact-form-card {
+  background: var(--ink) !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 20px !important;
+}
+
+/* Fun Label Styling */
+.form-label-comic {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: var(--card-bg);
-  color: var(--ink);
-  border-radius: 0 !important;
+  color: var(--accent);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 5px;
 }
 
-.accordion-button:not(.collapsed) {
+/* The Button that really stands out */
+.send-btn-comic {
   background: var(--accent);
   color: var(--ink);
-  box-shadow: none;
-}
-
-.accordion-button:focus {
-  box-shadow: none;
-  outline: 3px dashed var(--accent2);
-}
-
-.accordion-body {
   font-family: 'Syne', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.75;
-  color: #2a2a26;
-  background: var(--card-bg);
+  font-weight: 800;
+  border: 4px solid var(--border);
+  padding: 15px;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  transition: 0.1s;
+  box-shadow: 6px 6px 0px var(--border);
 }
 
-.accordion-item {
-  border-radius: 0 !important;
+.send-btn-comic:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px var(--border);
 }
 
+.send-btn-comic:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px var(--border);
+}
+
+/* Custom Input Focus with Lime Glow */
+.custom-input:focus {
+  border-color: var(--accent) !important;
+  background: rgba(200, 240, 74, 0.05) !important;
+  box-shadow: none !important;
+}
 /* =====================
    MOBILE BREAKPOINTS
 ===================== */
@@ -509,19 +625,28 @@ nav a.active::after { display: none; }
     left: 0;
     width: 100%;
     z-index: 1000;
+    flex-wrap: wrap; 
   }
 
   body {
-    padding-top: 72px;
+    padding-top: 100px; 
   }
-
   .page { padding: 24px 16px; }
 
   nav a {
-    padding: 14px 12px;
-    font-size: 0.7rem;
-    letter-spacing: 0.07em;
+    flex: 1 1 50%; 
+    padding: 12px 4px;
+    font-size: 0.75rem; 
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap; /* Prevents "Tech Stack" from breaking into two lines */
   }
+
+  /* Adjust the active indicator for the grid layout */
+  nav a::after {
+    bottom: 0;
+  }
+}
 
   .stack-grid {
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
@@ -562,7 +687,7 @@ nav a.active::after { display: none; }
   .about-card {
     padding: 18px 16px;
   }
-}
+
 
 @media (max-width: 540px) {
   .profile-header {
@@ -618,6 +743,110 @@ nav a.active::after { display: none; }
 }
 .swal2-html-container {
   font-family: 'Syne', sans-serif !important;
+}
+/* --- Base Theme --- */
+.custom-nav {
+  background: var(--ink) !important;
+  border-bottom: 3px solid var(--border);
+  --bs-navbar-active-color: var(--ink);
+    --bs-navbar-color: #ffffff;
+}
+
+#portfolioNavbar .navbar-nav .nav-link, 
+.custom-nav .navbar-nav .nav-link {
+    color: #ffffff !important;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    padding: 18px 25px !important;
+    opacity: 1 !important; /* Ensures no transparency is dulling the white */
+}
+
+/* Keep the active state dark for readability against the lime green */
+#portfolioNavbar .nav-link.active {
+    color: var(--ink) !important;
+    background: var(--accent) !important;
+}
+
+.custom-nav .nav-link.active {
+  background: var(--accent) !important;
+  color: var(--ink) !important;
+}
+
+/* --- Mobile Specific Styles --- */
+@media (max-width: 767px) {
+  .navbar-toggler {
+    border: 3px solid var(--accent);
+    border-radius: 0;
+    padding: 5px;
+  }
+
+  /* Colors the hamburger lines to your accent color */
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28200, 240, 74, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  .navbar-collapse {
+    background: var(--ink);
+    border: 3px solid var(--border);
+    margin-top: 10px;
+    box-shadow: 6px 6px 0px var(--accent); /* Adds a comic-style pop */
+  }
+
+  .custom-nav .nav-link {
+    text-align: left;
+    padding: 15px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+/* Forces the grid into two columns even on smaller screens */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Side-by-side */
+  gap: 15px;
+  max-width: 500px; /* Keeps the whole section from getting too wide */
+  margin: 0 auto;   /* Centers the grid on the page */
+}
+
+/* Reduces the size of the contact cards and icons */
+.contact-layout .about-card {
+  padding: 15px; /* Smaller internal spacing */
+}
+
+.contact-layout .profile-icon {
+  width: 200px;  /* Adjusted from previous larger sizes */
+  height: 200px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.contact-layout .profile-icon:hover {
+  transform: scale(1.1); /* Adds a little pop when hovered */
+}
+
+/* Adjusts the text size inside these smaller cards */
+.contact-layout h3 {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+.custom-input {
+  background: var(--ink) !important;
+  border: 3px solid var(--border) !important;
+  border-radius: 0 !important;
+  color: #fff !important;
+  font-family: 'DM Sans', sans-serif;
+  padding: 12px !important;
+}
+
+.custom-input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 4px 4px 0px var(--accent) !important;
+  outline: none;
+}
+
+.custom-input::placeholder {
+  color: #9a9a95;
 }
 
 }
