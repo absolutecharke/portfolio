@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
       targets: '.social-item', 
       translateY: [50, 0],
       opacity: [0, 1],
-      delay: anime.stagger(630), 
+      delay: anime.stagger(250), 
       easing: 'easeOutElastic(1, .8)', 
       duration: 1000
     });
