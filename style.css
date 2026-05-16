@@ -186,7 +186,7 @@ nav a.active::after { display: none; }
 
 .swal-title {
   font-family: 'Syne', sans-serif !important;
-  font-weight: 800 !important;
+  font-weight: 600 !important;
   font-size: 1.4rem !important;
   letter-spacing: 0.05em;
   color: #000;
